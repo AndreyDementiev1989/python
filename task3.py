@@ -1,21 +1,19 @@
 # coding=utf-8
-'''Сформировать из введенного числа обратное по порядку входящих в него цифр и вывести на экран.
-Например, если введено число 3486, то надо вывести число 6843'''
-a = int(input('Введите число:'))
-current = 0
-temp = 0
-'''Математически'''
-while a > 0:
-    tempcurr = a % 10
-    a //= 10
-    temp = a
-    while temp > 0:
-        tempcurr *= 10
-        temp //= 10
-    current += tempcurr
-print ('Реверс числа: {} '.format(current))
+# В массиве случайных целых чисел поменять местами минимальный и максимальный элементы.
 
-'''по питоньи'''
+import random
+from random import randint
 
-b = str(input('Введите число:'))
-print('Реверс числа: {} '.format(int(b[::-1])))
+a = [random.randint(0, 1000) for x in range(10)]
+print ('До замены {} :'.format(a))
+
+max_i = 0
+min_i = 0
+for i in range(len(a)):
+    if a[i] > a[max_i]:
+        max_i = i
+    elif a[i] < a[min_i]:
+        min_i = i
+
+a[max_i], a[min_i] = a[min_i], a[max_i]
+print ('После замены {} :'.format(a))

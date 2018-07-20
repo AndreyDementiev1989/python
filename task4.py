@@ -1,9 +1,20 @@
 # coding=utf-8
-'''Найти сумму n элементов следующего ряда чисел: 1 -0.5 0.25 -0.125 ...Количество элементов (n) вводится с клавиатуры'''
-n = int(input('Введите количество элементов: '))
-temp = 1
-summ = 1
-for i in range(1, n):
-    temp = temp * (-1) / 2
-    summ += temp
-print(summ)
+# Определить, какое число в массиве встречается чаще всего
+a = [1, 2, 12, 2, 2]
+
+if len(a) == len(set(a)) != 0:
+    print('Все числа разные')
+elif len(a) == 0:
+    print('Массив пустой')
+else:
+    b = {}
+    count = 0
+    current = None
+    for i in a:
+        if i not in b:
+            b[i]=0
+        b[i] += 1
+        if  b[i] > count:
+             current = i
+
+print ('Число {} встречается чаще всего'.format(current))

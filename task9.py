@@ -1,18 +1,26 @@
 # coding=utf-8
-'''Среди натуральных чисел, которые были введены, найти наибольшее по сумме цифр. Вывести на экран это число и сумму его цифр'''
+# Найти максимальный элемент среди минимальных элементов столбцов матрицы
+import random
+from random import randint
+matrix = [[random.randint(0,22) for _ in range(3)] for _ in range(3)]
+for line in matrix:
+    print(line)
 
-a = [1111, 1, 2, 111, 123, 99, 10, 0, 12]
-max_summ = 0
-curr = 0
-curr_temp = 0
-for i in a:
-    tmp_val = 0
-    curr_temp = i
-    while i > 0:
-        tmp_val = tmp_val + (i % 10)
-        i //= 10
+current = None
 
-    if tmp_val > max_summ:
-        max_summ = tmp_val
-        curr = curr_temp
-print('Число {} имеет максимальную сумму его цифр. Сумма его цифр равняется {}.'.format(curr, max_summ))
+for j in range(len((matrix)[0])):
+    spam = matrix[0][j]
+    for i in range(len(matrix)):
+        if spam > matrix[i][j]:
+           spam = matrix[i][j]
+    if current is None:
+        current = spam
+    else:
+        if current < spam:
+            current = spam
+
+print (current)
+
+
+
+
